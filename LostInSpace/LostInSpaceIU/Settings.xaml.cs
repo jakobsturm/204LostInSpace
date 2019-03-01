@@ -20,13 +20,28 @@ namespace LostInSpaceUI
     /// </summary>
     public partial class Settings : Window, INotifyPropertyChanged
     {
+         private double volume;
+        private string imageSource;
+
         public Settings()
         {
             InitializeComponent();
+            Volume = 50;
+            ImageSource = "Images/volume_medium";
             DataContext = this;
         }
 
-        private double volume;
+
+        public string ImageSource
+        {
+            get { return imageSource; }
+            set
+            {
+                imageSource = value;
+                OnPropertyChanged("ImageSource");
+            }
+        }
+
 
         public double Volume
         {
@@ -35,15 +50,22 @@ namespace LostInSpaceUI
             {
                 volume = value;
                 OnPropertyChanged("Volume");
- 
 
-                if (volume==0)
+
+                if (volume <= 10)
                 {
-                    image_Volume.Source. = "Images/volume_mute.png";
+                    ImageSource = "Images/volume_mute";
+                }
+                else if (volume < 80 && volume > 10)
+                {
+                    ImageSource = "Images/volume_medium";
+                }
+                else if (volume <= 80)
+                {
+                    ImageSource = "Images/volume_loud";
                 }
             }
         }
-
 
         private void OnPropertyChanged(string property)
         {

@@ -12,15 +12,19 @@ namespace LostInSpace
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont spriteFont;
 
         LostInSpaceGame lostInSpaceGame;
 
         Song background_music;
         Dictionary<string, Texture2D> textures;
 
-        public Game1()
+        float fuel;
+
+        public Game1(float fuel)
         {
             this.IsMouseVisible = true;
+            this.fuel = fuel;
 
             graphics = new GraphicsDeviceManager(this);
 
@@ -40,13 +44,15 @@ namespace LostInSpace
             textures.Add("Rocket", Content.Load<Texture2D>("rocket"));
             textures.Add("Planet", Content.Load<Texture2D>("planet"));
             textures.Add("Hintergrund", Content.Load<Texture2D>("background_v2"));
-            textures.Add("Fuel", GetTexture2DFromColour(GraphicsDevice, Color.Gray, 10, 10));
-            textures.Add("Health", GetTexture2DFromColour(GraphicsDevice, Color.Red, 10, 10));
-            textures.Add("Money", GetTexture2DFromColour(GraphicsDevice, Color.Green, 10, 10));
+            textures.Add("Fuel", Content.Load<Texture2D>("fuel"));
+            textures.Add("Health", Content.Load<Texture2D>("heart"));
+            textures.Add("Money", Content.Load<Texture2D>("coin"));
+
+            spriteFont = Content.Load<SpriteFont>("spritefont");
 
             background_music = Content.Load<Song>("Tragik_in_A-Moll");
 
-            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures, new Size(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures, new Size(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), spriteFont, fuel);
 
             base.Initialize();
         }

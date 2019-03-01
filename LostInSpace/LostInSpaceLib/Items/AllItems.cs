@@ -18,7 +18,7 @@ namespace LostInSpaceLib
 
             Position = new Vector2(posX, posY);
             allitems = new List<L_AllItems>();
-            //spriteBatch = new SpriteBatch();
+
             switch (WhatItem)
             {
                 case 1:
