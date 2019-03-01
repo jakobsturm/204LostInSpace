@@ -47,6 +47,7 @@
     <Compile Include="Entity.cs" />
     <Compile Include="Items\Fuel.cs" />
     <Compile Include="Items\Health.cs" />
+    <Compile Include="Items\ItemManager.cs" />
     <Compile Include="LostInSpaceGame.cs" />
     <Compile Include="Items\Money.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
