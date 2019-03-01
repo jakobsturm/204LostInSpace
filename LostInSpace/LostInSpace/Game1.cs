@@ -41,8 +41,8 @@ namespace LostInSpace
             textures.Add("Planet", Content.Load<Texture2D>("planet"));
             textures.Add("Hintergrund", Content.Load<Texture2D>("background_v2"));
             textures.Add("Fuel", Content.Load<Texture2D>("fuel"));
-            textures.Add("Health", GetTexture2DFromColour(GraphicsDevice, Color.Red, 10, 10));
-            textures.Add("Money", GetTexture2DFromColour(GraphicsDevice, Color.Green, 10, 10));
+            textures.Add("Health", Content.Load<Texture2D>("heart"));
+            textures.Add("Money", Content.Load<Texture2D>("coin"));
 
             background_music = Content.Load<Song>("Tragik_in_A-Moll");
 
