@@ -8,5 +8,19 @@ namespace LostInSpaceLib
 {
     public class Items
     {
+        public void Healthpoints()
+        {
+            
+        }
+
+        public void Money()
+        {
+
+        }
+
+        public void Fuel()
+        {
+
+        }
     }
 }
