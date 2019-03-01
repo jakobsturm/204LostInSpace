@@ -22,9 +22,9 @@ namespace LostInSpaceLib
         Dictionary<string, Texture2D> textures;
         Size windowSize;
 
-
         private float money;
         private Rocket rocket;
+        private Vector2 backgroundOffset;
 
         private ItemManager itemManager;
 
@@ -61,7 +61,7 @@ namespace LostInSpaceLib
 
             rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize);
 
-            itemManager = new ItemManager(rocket, windowSize, textures, graphicsDevice);
+            //itemManager = new ItemManager();
         }
         
         public void LoadContent()
@@ -80,7 +80,10 @@ namespace LostInSpaceLib
                 money = newMoneyValue;
             }
 
-            itemManager.Update(gameTime, rocket, textures);
+            if (rocket.Position.Y > 200)
+            {
+                backgroundOffset.Y = rocket.Position.Y - 200;
+            }
 
             rocket.Update(gameTime);
         }
@@ -88,6 +91,12 @@ namespace LostInSpaceLib
         public void Draw(GameTime gameTime)
         {
             graphicsDevice.Clear(Color.Black);
+
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(textures["Hintergrund"], new Rectangle((int)backgroundOffset.X, (int)(backgroundOffset.Y - (textures["Hintergrund"].Height - windowSize.Height)), (int)windowSize.Width, (int)textures["Hintergrund"].Height), Color.White);
+
+            spriteBatch.End();
 
             rocket.Draw(gameTime);
         }
