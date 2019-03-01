@@ -6,19 +6,9 @@ using System.Threading.Tasks;
 
 namespace LostInSpaceLib
 {
-    public class Items
+    public class Money
     {
-        public void Healthpoints()
-        {
-            
-        }
-
-        public void Money()
-        {
-
-        }
-
-        public void Fuel()
+        public Money()
         {
 
         }
