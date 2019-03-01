@@ -31,7 +31,7 @@ namespace LostInSpaceUI
         private void Button_StartGame_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            Game1 game = new Game1();
+            Game1 game = new Game1(100f);
             game.Run();
         }
 
