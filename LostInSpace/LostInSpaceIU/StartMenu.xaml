@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LostInSpaceIU"
         mc:Ignorable="d"
-        Title="Menu" Height="300" Width="400">
+        Title="Menu" Height="400" Width="400"
+        Background="#26235a">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="10,0,10,0"/>
@@ -17,12 +18,13 @@
 
     <Grid Name="grid_StartMenu">
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
+            <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Margin="5" Content="Into Space" FontSize="70" HorizontalAlignment="Center" FontWeight="Bold"/>
+        <Image Source="Images/logo.png"/>
+        <!--<Label Grid.Row="0" Margin="5" Content="Into Space" FontSize="70" HorizontalAlignment="Center" FontWeight="Bold"/>-->
         
         <Grid Name="grid_buttons_1" Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -44,3 +46,4 @@
 
     </Grid>
 </Window>
+<!--julia.heller@htldornbirn.at-->
