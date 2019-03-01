@@ -45,11 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity.cs" />
-    <Compile Include="Items\Fuel.cs" />
-    <Compile Include="Items\Health.cs" />
+    <Compile Include="Items\AllItems.cs" />
     <Compile Include="Items\ItemManager.cs" />
+    <Compile Include="Items\L_AllItems.cs" />
     <Compile Include="LostInSpaceGame.cs" />
-    <Compile Include="Items\Money.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rocket.cs" />
   </ItemGroup>
