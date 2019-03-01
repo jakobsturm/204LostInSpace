@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace LostInSpaceLib
 {
@@ -12,6 +13,8 @@ namespace LostInSpaceLib
         private float velocity;
         private Vector2 movementVector;
         private Vector2 position;
+        private Texture2D texture;
+        private SpriteBatch spriteBatch;
 
         private int hullPoints;
         private float fuel;
@@ -42,9 +45,12 @@ namespace LostInSpaceLib
 
         //-----------------------------------------------------------------------------------------
 
-        public Rocket()
+        public Rocket(GraphicsDevice graphicsDevice, Texture2D texture)
         {
             Position = new Vector2(0, 0);
+
+            this.texture = texture;
+            spriteBatch = new SpriteBatch(graphicsDevice);
         }
 
         //-----------------------------------------------------------------------------------------
@@ -55,13 +61,15 @@ namespace LostInSpaceLib
             float movementFactor = velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             Position = new Vector2(movementVector.X * movementFactor, movementVector.Y * movementFactor);
-
-
         }
 
         public override void Draw(GameTime gameTime)
         {
-            throw new NotImplementedException();
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(texture, Position, Color.White);
+
+            spriteBatch.End();
         }
     }
 }
