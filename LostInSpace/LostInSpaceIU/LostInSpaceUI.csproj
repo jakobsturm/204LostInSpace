@@ -34,6 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MonoGame.Framework, Version=3.7.1.189, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -60,8 +61,8 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StartUp.xaml.cs">
-      <DependentUpon>StartUp.xaml</DependentUpon>
+    <Compile Include="ProgressWindow.xaml.cs">
+      <DependentUpon>ProgressWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="ItemShop.xaml">
       <SubType>Designer</SubType>
@@ -83,7 +84,7 @@
       <DependentUpon>StartMenu.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="StartUp.xaml">
+    <Page Include="ProgressWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -122,6 +123,17 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\fuel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LostInSpace\LostInSpace.csproj">
+      <Project>{75815d59-6715-45f5-8558-88110fbe61c5}</Project>
+      <Name>LostInSpace</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\volume_loud.png" />
+    <Resource Include="Images\volume_medium.png" />
+    <Resource Include="Images\volume_mute.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

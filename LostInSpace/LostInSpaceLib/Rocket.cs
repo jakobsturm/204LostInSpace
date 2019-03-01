@@ -54,7 +54,7 @@ namespace LostInSpaceLib
         public Rocket(GraphicsDevice graphicsDevice, Texture2D texture, Size windowSize)
         {
             Position = new Vector2(0, 0);
-            velocity = 100;
+            velocity = 10;
 
             this.texture = texture;
             this.windowSize = windowSize;
