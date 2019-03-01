@@ -62,9 +62,9 @@ namespace LostInSpace
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            
+            lostInSpaceGame.Rocket.MovementVector = new Vector2(lostInSpaceGame.Rocket.Position.X  );
             lostInSpaceGame.Update(gameTime);
-            lostInSpaceGame.Rocket.MovementVector = new Vector2(5);
 
             base.Update(gameTime);
         }

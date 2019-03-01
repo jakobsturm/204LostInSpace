@@ -11,7 +11,6 @@ namespace LostInSpaceLib.Items
     {
 
 
-
         public int GeneratedRandom { get; set; }
         Random rnd = new Random();
 

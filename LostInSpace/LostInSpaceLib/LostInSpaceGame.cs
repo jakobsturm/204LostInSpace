@@ -12,7 +12,7 @@ namespace LostInSpaceLib
 {
     public class LostInSpaceGame
     {
-        const float moneyFactor = 0.05f;
+        const float MONEY_FACTOR = 0.05f;
 
         GraphicsDevice graphicsDevice;
         SpriteBatch spriteBatch;
@@ -67,7 +67,7 @@ namespace LostInSpaceLib
 
         public void Update(GameTime gameTime)
         {
-            float newMoneyValue = rocket.Position.Y * moneyFactor;
+            float newMoneyValue = rocket.Position.Y * MONEY_FACTOR;
 
             if (money < newMoneyValue)
             {
