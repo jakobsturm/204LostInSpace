@@ -19,15 +19,16 @@ namespace LostInSpaceUI
     /// <summary>
     /// Interaktionslogik für StartUp.xaml
     /// </summary>
-    public partial class StartUp : Window, INotifyPropertyChanged 
+    public partial class ProgressWindow : Window, INotifyPropertyChanged 
     {
         DispatcherTimer timer;
         private double progress;
 
-        public StartUp()
+        public ProgressWindow()
         {
             InitializeComponent();
             DataContext = this;
+
             this.Focus();
             Progress = 0;
             timer = new DispatcherTimer();

@@ -20,19 +20,18 @@ namespace LostInSpaceUI
     /// Interaktionslogik für StartMenu.xaml
     /// </summary>
     public partial class StartMenu: Window
-    {
-        Game1 game;
+    { 
         public StartMenu()
         {
             InitializeComponent();
-            StartUp startUp = new StartUp();
+            ProgressWindow startUp = new ProgressWindow();
             startUp.ShowDialog();
         }
 
         private void Button_StartGame_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            game = new Game1();
+            Game1 game = new Game1();
             game.Run();
         }
 
