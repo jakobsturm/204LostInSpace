@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Xna.Framework;
 
 namespace LostInSpaceLib
 {
     abstract public class Entity
     {
-        abstract public void Update();
-        abstract public void Draw();
+        abstract public void Update(GameTime gameTime);
+        abstract public void Draw(GameTime gameTime);
     }
 }
