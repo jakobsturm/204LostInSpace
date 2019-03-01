@@ -124,5 +124,10 @@
       <Name>LostInSpace</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\volume_loud.png" />
+    <Resource Include="Images\volume_medium.png" />
+    <Resource Include="Images\volume_mute.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LostInSpaceIU"
         mc:Ignorable="d"
         Title="Menu" Height="400" Width="400"
-        Background="#26235a">
+        Background="#26235a" Icon="Images/logo.png">
     <Window.Resources>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="10,0,10,0"/>
