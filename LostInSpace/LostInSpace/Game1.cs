@@ -38,6 +38,8 @@ namespace LostInSpace
 
             // Add all the textures here!!!
             textures.Add("Rocket", Content.Load<Texture2D>("rocket"));
+            textures.Add("Planet", Content.Load<Texture2D>("planet"));
+            textures.Add("Hintergrund", Content.Load<Texture2D>("background"));
             textures.Add("Fuel", GetTexture2DFromColour(GraphicsDevice, Color.Gray, 10, 10));
             textures.Add("Health", GetTexture2DFromColour(GraphicsDevice, Color.Red, 10, 10));
             textures.Add("Money", GetTexture2DFromColour(GraphicsDevice, Color.Green, 10, 10));
