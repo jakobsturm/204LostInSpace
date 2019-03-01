@@ -10,18 +10,19 @@ namespace LostInSpaceLib
 {
     public class LostInSpaceGame
     {
-        GraphicsDeviceManager graphics;
         GraphicsDevice graphicsDevice;
         SpriteBatch spriteBatch;
 
-        public LostInSpaceGame()
-        {
+        Rocket rocket;
 
+        public LostInSpaceGame(GraphicsDevice graphicsDevice)
+        {
+            this.graphicsDevice = graphicsDevice;
         }
         
         public void Initialize()
         {
-
+            
         }
         
         public void LoadContent()
@@ -42,8 +43,6 @@ namespace LostInSpaceLib
         public void Draw(GameTime gameTime)
         {
             graphicsDevice.Clear(Color.CornflowerBlue);
-
-
         }
     }
 }

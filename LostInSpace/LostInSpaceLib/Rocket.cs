@@ -13,6 +13,10 @@ namespace LostInSpaceLib
         private Vector2 movementVector;
         private Vector2 position;
 
+        private int hullPoints;
+        private float fuel;
+        private float money;
+
         public Vector2 MovementVector
         {
             get { return movementVector; }
@@ -24,6 +28,26 @@ namespace LostInSpaceLib
             get { return position; }
             set { position = value; }
         }
+        
+        public int HullPoints
+        {
+            get { return hullPoints; }
+            set { hullPoints = value; }
+        }
+        
+        public float Fuel
+        {
+            get { return fuel; }
+            set { fuel = value; }
+        }
+
+
+        public float Money
+        {
+            get { return money; }
+            set { money = value; }
+        }
+
 
         //-----------------------------------------------------------------------------------------
 
