@@ -117,5 +117,11 @@
   <ItemGroup>
     <Resource Include="Images\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background-shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fuel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
