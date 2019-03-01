@@ -54,7 +54,7 @@ namespace LostInSpaceLib
         public Rocket(GraphicsDevice graphicsDevice, Texture2D texture, Size windowSize)
         {
             Position = new Vector2(0, 0);
-            velocity = 3;
+            velocity = 10;
 
             this.texture = texture;
             this.windowSize = windowSize;
@@ -67,11 +67,15 @@ namespace LostInSpaceLib
 
         public override void Update(GameTime gameTime)
         {
-            MovementVector.Normalize();
             float movementFactor = velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             Position += new Vector2(movementVector.X * movementFactor, movementVector.Y * movementFactor);
             Console.WriteLine(Position.ToString());
+
+            if (Position.Y > 200)
+            {
+
+            }
         }
 
         public override void Draw(GameTime gameTime)
