@@ -14,13 +14,16 @@ namespace LostInSpaceLib
         const int TEXTURE_WIDTH = 145;
         const int TEXTURE_HEIGHT = 200;
 
-        private float velocity;
+        const float FUEL_FACTOR = 0.1f;
+
+        public float velocity;
         private Vector2 movementVector;
         private Vector2 position;
         private Texture2D texture;
         private SpriteBatch spriteBatch;
         private Size windowSize;
         private Vector2 offset;
+        public bool isFlying;
 
         private int hullPoints;
         private float fuel;
@@ -51,13 +54,15 @@ namespace LostInSpaceLib
 
         //-----------------------------------------------------------------------------------------
 
-        public Rocket(GraphicsDevice graphicsDevice, Texture2D texture, Size windowSize)
+        public Rocket(GraphicsDevice graphicsDevice, Texture2D texture, Size windowSize, float fuel)
         {
             Position = new Vector2(0, 0);
-            velocity = 10;
+            velocity = 20;
+            isFlying = true;
 
             this.texture = texture;
             this.windowSize = windowSize;
+            this.fuel = fuel;
 
             spriteBatch = new SpriteBatch(graphicsDevice);
             offset = new Vector2((float)windowSize.Width / 2 - TEXTURE_WIDTH / 2, (float)windowSize.Height - TEXTURE_HEIGHT);
@@ -67,14 +72,27 @@ namespace LostInSpaceLib
 
         public override void Update(GameTime gameTime)
         {
-            float movementFactor = velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-            Position += new Vector2(movementVector.X * movementFactor, movementVector.Y * movementFactor);
-            Console.WriteLine(Position.ToString());
-
-            if (Position.Y > 200)
+            if (isFlying == true)
             {
-                offset.Y += movementVector.Y * movementFactor;
+                float movementFactor = velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                Position += new Vector2(movementVector.X * movementFactor, movementVector.Y * movementFactor);
+                Console.WriteLine(Position.ToString());
+
+                if (Position.Y > 200)
+                {
+                    offset.Y += movementVector.Y * movementFactor;
+                }
+            }
+
+            if (fuel > 0)
+            {
+                fuel -= FUEL_FACTOR;
+            }
+            else
+            {
+                fuel = 0;
+                isFlying = false;
             }
         }
 

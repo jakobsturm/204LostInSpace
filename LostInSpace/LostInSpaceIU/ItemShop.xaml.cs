@@ -26,22 +26,11 @@ namespace LostInSpaceUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            button_caption.Text = "2x";
+            string current = button_caption.Text;
+            int cur = Convert.ToInt32(current.Substring(0, 1));
+            cur++;
+            button_caption.Text = cur + "x";
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
     }
 }
