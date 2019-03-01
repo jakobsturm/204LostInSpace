@@ -22,8 +22,6 @@ namespace LostInSpaceLib
             FuelTexture = texture;
         }
 
-
-
         public void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();

@@ -27,6 +27,7 @@ namespace LostInSpaceLib
         private Rocket rocket;
         private Vector2 backgroundOffset;
         private Vector2 planetOffset;
+        private float fuel;
 
         private ItemManager itemManager;
 
@@ -44,13 +45,14 @@ namespace LostInSpaceLib
 
         //-----------------------------------------------------------------------------------------
 
-        public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize, SpriteFont spriteFont)
+        public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize, SpriteFont spriteFont, float fuel)
         {
             this.graphicsDevice = graphicsDevice;
             this.background_music = background_music;
             this.textures = textures;
             this.windowSize = windowSize;
             this.spriteFont = spriteFont;
+            this.fuel = fuel;
 
             Initialize();
             LoadContent();
@@ -62,7 +64,7 @@ namespace LostInSpaceLib
         {
             money = 0;
 
-            rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize, 100f);
+            rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize, fuel);
 
             //itemManager = new ItemManager();
         }

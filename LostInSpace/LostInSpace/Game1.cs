@@ -19,9 +19,12 @@ namespace LostInSpace
         Song background_music;
         Dictionary<string, Texture2D> textures;
 
-        public Game1()
+        float fuel;
+
+        public Game1(float fuel)
         {
             this.IsMouseVisible = true;
+            this.fuel = fuel;
 
             graphics = new GraphicsDeviceManager(this);
 
@@ -49,7 +52,7 @@ namespace LostInSpace
 
             background_music = Content.Load<Song>("Tragik_in_A-Moll");
 
-            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures, new Size(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), spriteFont);
+            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures, new Size(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), spriteFont, fuel);
 
             base.Initialize();
         }

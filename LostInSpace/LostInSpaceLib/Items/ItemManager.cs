@@ -30,8 +30,7 @@ namespace LostInSpaceLib.Items
         public int RndPosY { get; set; }
 
         Random rnd = new Random();
-
-
+        
         public ItemManager(Rocket rocket, Size s, Dictionary<string, Texture2D> textures, GraphicsDevice graphicsDevice)
         {
 
