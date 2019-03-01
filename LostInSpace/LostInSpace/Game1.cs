@@ -37,7 +37,7 @@ namespace LostInSpace
             textures = new Dictionary<string, Texture2D>();
 
             // Add all the textures here!!!
-            textures.Add("Rocket", GetTexture2DFromColour(GraphicsDevice, Color.DarkGray, 100, 100));
+            textures.Add("Rocket", Content.Load<Texture2D>("rocket"));
             textures.Add("Fuel", GetTexture2DFromColour(GraphicsDevice, Color.Gray, 10, 10));
             textures.Add("Health", GetTexture2DFromColour(GraphicsDevice, Color.Red, 10, 10));
             textures.Add("Money", GetTexture2DFromColour(GraphicsDevice, Color.Green, 10, 10));
