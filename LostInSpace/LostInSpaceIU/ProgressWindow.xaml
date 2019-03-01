@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LostInSpaceUI"
         mc:Ignorable="d"
-        Title="In Progress" Height="80" Width="300" Icon="Images/logo.png" Background="#26235a" WindowStyle="None">
+        Title="In Progress" Height="80" Width="300" Icon="Images/logo.png" Background="#26235a" WindowStyle="None" ShowInTaskbar="False">
     <Grid>
         <ProgressBar Name="progressBar" Minimum="0" Maximum="100" Orientation="Horizontal" Value="{Binding Progress}" Height="25" Margin="10"/>
         <TextBlock Text="{Binding ElementName=progressBar, Path=Value, StringFormat={}Loading Files: {0:0}%}" HorizontalAlignment="Center" VerticalAlignment="Center" />
