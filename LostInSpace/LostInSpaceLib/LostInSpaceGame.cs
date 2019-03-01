@@ -1,5 +1,4 @@
-﻿using LostInSpaceLib.Items;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System;
@@ -37,6 +36,7 @@ namespace LostInSpaceLib
             set { rocket = value; }
         }
 
+        //-----------------------------------------------------------------------------------------
 
         public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize)
         {
@@ -49,14 +49,13 @@ namespace LostInSpaceLib
             LoadContent();
         }
         
+        //-----------------------------------------------------------------------------------------
+
         public void Initialize()
         {
-
             money = 0;
 
-            rocket = new Rocket(graphicsDevice, textures["Rocket"]);
-
-            ItemManager itemManager = new ItemManager(rocket, windowSize, textures);
+            rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize);
         }
         
         public void LoadContent()
@@ -77,10 +76,10 @@ namespace LostInSpaceLib
 
             rocket.Update(gameTime);
         }
-        
+
         public void Draw(GameTime gameTime)
         {
-            graphicsDevice.Clear(Color.CornflowerBlue);
+            graphicsDevice.Clear(Color.Black);
 
             rocket.Draw(gameTime);
         }
