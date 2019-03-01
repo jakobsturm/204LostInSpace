@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using System.Collections.Generic;
 
 namespace LostInSpace
 {
@@ -12,6 +14,9 @@ namespace LostInSpace
 
         LostInSpaceGame lostInSpaceGame;
 
+        Song background_music;
+        Dictionary<string, Texture2D> textures;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -20,7 +25,14 @@ namespace LostInSpace
         
         protected override void Initialize()
         {
-            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice);
+            textures = new Dictionary<string, Texture2D>();
+
+            // Add all the textures here!!!
+            textures.Add("Rocket", GetTexture2DFromColour(GraphicsDevice, Color.Black, 100, 100));
+
+            background_music = Content.Load<Song>("Tragik_in_A-Moll");
+
+            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures);
 
             base.Initialize();
         }
@@ -49,6 +61,21 @@ namespace LostInSpace
             lostInSpaceGame.Draw(gameTime);
 
             base.Draw(gameTime);
+        }
+
+        public Texture2D GetTexture2DFromColour(GraphicsDevice graphics, Color colour, int width, int height)
+        {
+            Texture2D texture = new Texture2D(graphics, width, height);
+            Color[] data = new Color[width * height];
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = colour;
+            }
+
+            texture.SetData(data);
+
+            return texture;
         }
     }
 }
