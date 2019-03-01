@@ -41,10 +41,13 @@ namespace LostInSpaceLib.Items
             {
                 case 1:
                     h = new Health(RndPosX, RndPosY, textures["Health"]);
+                    break;
                 case 2:
                     f = new Fuel(RndPosX, RndPosY, textures["Fuel"]);
+                    break;
                 case 3:
                     m = new Money(RndPosX, RndPosY, textures["Money"]);
+                    break;
             }
 
             

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using LostInSpaceLib.Items;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System;
@@ -21,8 +22,11 @@ namespace LostInSpaceLib
         Dictionary<string, Texture2D> textures;
         Size windowSize;
 
+
         private float money;
         private Rocket rocket;
+
+        private ItemManager itemManager;
 
         public float Money
         {
@@ -56,6 +60,8 @@ namespace LostInSpaceLib
             money = 0;
 
             rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize);
+
+            itemManager = new ItemManager()
         }
         
         public void LoadContent()
