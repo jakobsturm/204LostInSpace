@@ -11,6 +11,9 @@ namespace LostInSpaceLib
 {
     public class Rocket : Entity
     {
+        const int TEXTURE_WIDTH = 100;
+        const int TEXTURE_HEIGHT = 100;
+
         private float velocity;
         private Vector2 movementVector;
         private Vector2 position;
@@ -51,29 +54,35 @@ namespace LostInSpaceLib
         public Rocket(GraphicsDevice graphicsDevice, Texture2D texture, Size windowSize)
         {
             Position = new Vector2(0, 0);
+            velocity = 10;
 
             this.texture = texture;
             this.windowSize = windowSize;
 
             spriteBatch = new SpriteBatch(graphicsDevice);
-            offset = new Vector2((float)windowSize.Width / 2 - texture.Width / 2, (float)windowSize.Height - texture.Height);
+            offset = new Vector2((float)windowSize.Width / 2 - TEXTURE_WIDTH / 2, (float)windowSize.Height - TEXTURE_HEIGHT);
         }
 
         //-----------------------------------------------------------------------------------------
 
         public override void Update(GameTime gameTime)
         {
-            MovementVector.Normalize();
             float movementFactor = velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            Position = new Vector2(movementVector.X * movementFactor, movementVector.Y * movementFactor);
+            Position += new Vector2(movementVector.X * movementFactor, movementVector.Y * movementFactor);
+            Console.WriteLine(Position.ToString());
+
+            if (Position.Y > 200)
+            {
+
+            }
         }
 
         public override void Draw(GameTime gameTime)
         {
             spriteBatch.Begin();
 
-            spriteBatch.Draw(texture, Position + offset, Color.White);
+            spriteBatch.Draw(texture, new Rectangle((-Position + offset).ToPoint(), new Microsoft.Xna.Framework.Point(TEXTURE_WIDTH, TEXTURE_HEIGHT)), Color.White);
 
             spriteBatch.End();
         }
