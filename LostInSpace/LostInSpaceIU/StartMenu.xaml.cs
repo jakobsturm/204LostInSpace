@@ -13,16 +13,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LostInSpace
+namespace LostInSpaceUI
 {
     /// <summary>
     /// Interaktionslogik für StartMenu.xaml
     /// </summary>
-    public partial class StartMenu : Window
+    public partial class StartMenu: Window
     {
         public StartMenu()
         {
             InitializeComponent();
+
         }
 
         private void Button_StartGame_Click(object sender, RoutedEventArgs e)
@@ -33,6 +34,16 @@ namespace LostInSpace
         private void Button_ItemShop_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Settings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Exit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }
