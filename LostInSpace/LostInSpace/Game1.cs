@@ -12,6 +12,7 @@ namespace LostInSpace
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont spriteFont;
 
         LostInSpaceGame lostInSpaceGame;
 
@@ -44,9 +45,11 @@ namespace LostInSpace
             textures.Add("Health", GetTexture2DFromColour(GraphicsDevice, Color.Red, 10, 10));
             textures.Add("Money", GetTexture2DFromColour(GraphicsDevice, Color.Green, 10, 10));
 
+            spriteFont = Content.Load<SpriteFont>("spritefont");
+
             background_music = Content.Load<Song>("Tragik_in_A-Moll");
 
-            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures, new Size(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
+            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures, new Size(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight), spriteFont);
 
             base.Initialize();
         }

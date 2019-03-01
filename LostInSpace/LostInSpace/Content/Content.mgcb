@@ -37,6 +37,13 @@
 /processorParam:TextureFormat=Color
 /build:background_v2.png
 
+#begin FONT.spritefont
+/importer:FontDescriptionImporter
+/processor:LocalizedFontProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:FONT.spritefont
+
 #begin planet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -60,6 +67,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:rocket.png
+
+#begin spritefont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:spritefont.spritefont
 
 #begin Tragik_in_A-Moll.mp3
 /importer:Mp3Importer
