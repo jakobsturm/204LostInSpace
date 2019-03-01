@@ -62,7 +62,7 @@ namespace LostInSpaceLib
 
             rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize);
 
-            //itemManager = new ItemManager();
+            itemManager = new ItemManager();
         }
         
         public void LoadContent()
@@ -87,6 +87,8 @@ namespace LostInSpaceLib
             }
 
             rocket.Update(gameTime);
+
+            itemManager.Update(gameTime, rocket, textures, graphicsDevice);
         }
 
         public void Draw(GameTime gameTime)
