@@ -17,6 +17,7 @@ namespace LostInSpaceLib
 
         GraphicsDevice graphicsDevice;
         SpriteBatch spriteBatch;
+        SpriteFont spriteFont;
 
         Song background_music;
         Dictionary<string, Texture2D> textures;
@@ -26,6 +27,7 @@ namespace LostInSpaceLib
         private Rocket rocket;
         private Vector2 backgroundOffset;
         private Vector2 planetOffset;
+        private float fuel;
 
         private ItemManager itemManager;
 
@@ -43,12 +45,14 @@ namespace LostInSpaceLib
 
         //-----------------------------------------------------------------------------------------
 
-        public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize)
+        public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize, SpriteFont spriteFont, float fuel)
         {
             this.graphicsDevice = graphicsDevice;
             this.background_music = background_music;
             this.textures = textures;
             this.windowSize = windowSize;
+            this.spriteFont = spriteFont;
+            this.fuel = fuel;
 
             Initialize();
             LoadContent();
@@ -60,7 +64,7 @@ namespace LostInSpaceLib
         {
             money = 0;
 
-            rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize);
+            rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize, fuel);
 
             itemManager = new ItemManager();
         }
@@ -99,6 +103,10 @@ namespace LostInSpaceLib
 
             spriteBatch.Draw(textures["Hintergrund"], new Rectangle((int)backgroundOffset.X, (int)(backgroundOffset.Y - (textures["Hintergrund"].Height - windowSize.Height)), (int)windowSize.Width, (int)textures["Hintergrund"].Height), Color.White);
             spriteBatch.Draw(textures["Planet"], new Rectangle(0, (int)(windowSize.Height - textures["Planet"].Height), (int)windowSize.Width, (int)windowSize.Height), Color.White);
+
+            spriteBatch.DrawString(spriteFont, $"Money: {(int)money}", new Vector2(10, 10), Color.White);
+            spriteBatch.DrawString(spriteFont, $"Fuel: {(int)rocket.Fuel}", new Vector2(10, 30), Color.White);
+
 
             spriteBatch.End();
 
