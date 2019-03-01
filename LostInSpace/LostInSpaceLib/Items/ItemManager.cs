@@ -21,9 +21,7 @@ namespace LostInSpaceLib.Items
 
         private int Used { get; set; }
 
-        Health h;
-        Fuel f;
-        Money m;
+        AllItems AI;
 
         public int GeneratedRandom { get; set; }
         public int RndPosX { get; set; }
@@ -35,9 +33,6 @@ namespace LostInSpaceLib.Items
         public ItemManager(Rocket rocket, Size s, Dictionary<string, Texture2D> textures, GraphicsDevice graphicsDevice)
         {
 
-
-
-
         }
 
         public void ItemPicker(Dictionary<string, Texture2D> textures)
@@ -46,18 +41,7 @@ namespace LostInSpaceLib.Items
             RndPosX = rnd.Next(500, 1500);
             RndPosY = rnd.Next(100, 1080);
 
-            switch (GeneratedRandom)
-            {
-                case 1:
-                    h = new Health(RndPosX, RndPosY, textures["Health"]);
-                    break;
-                case 2:
-                    f = new Fuel(RndPosX, RndPosY, textures["Fuel"]);
-                    break;
-                case 3:
-                    m = new Money(RndPosX, RndPosY, textures["Money"]);
-                    break;
-            }
+            AI = new AllItems(RndPosX, RndPosY, textures, GeneratedRandom);
         }
 
         public void Update(GameTime gameTime, Rocket rocket, Dictionary<string, Texture2D> textures)

@@ -25,6 +25,7 @@ namespace LostInSpaceLib
         private float money;
         private Rocket rocket;
         private Vector2 backgroundOffset;
+        private Vector2 planetOffset;
 
         private ItemManager itemManager;
 
@@ -95,10 +96,30 @@ namespace LostInSpaceLib
             spriteBatch.Begin();
 
             spriteBatch.Draw(textures["Hintergrund"], new Rectangle((int)backgroundOffset.X, (int)(backgroundOffset.Y - (textures["Hintergrund"].Height - windowSize.Height)), (int)windowSize.Width, (int)textures["Hintergrund"].Height), Color.White);
+            spriteBatch.Draw(textures["Planet"], new Rectangle(0, (int)(windowSize.Height - textures["Planet"].Height), (int)windowSize.Width, (int)windowSize.Height), Color.White);
 
             spriteBatch.End();
 
             rocket.Draw(gameTime);
+        }
+
+        public bool CollisionDetection(Vector2 position1, Vector2 size1, Vector2 position2, Vector2 size2)
+        {
+            for (int i = (int)position1.X; i < position1.X + size1.X; i++)
+            {
+                for (int j = (int)position1.Y; j < position1.Y + size1.Y; j++)
+                {
+                    if (position2.X <= i && i <= position2.X + size2.X)
+                    {
+                        if (position2.Y <= j && j <= position2.Y + size2.Y)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            return false;
         }
     }
 }
