@@ -15,7 +15,6 @@ namespace LostInSpaceLib
 
         private int hullPoints;
         private float fuel;
-        private float money;
 
         public Vector2 MovementVector
         {
@@ -41,14 +40,6 @@ namespace LostInSpaceLib
             set { fuel = value; }
         }
 
-
-        public float Money
-        {
-            get { return money; }
-            set { money = value; }
-        }
-
-
         //-----------------------------------------------------------------------------------------
 
         public Rocket()
@@ -58,11 +49,6 @@ namespace LostInSpaceLib
 
         //-----------------------------------------------------------------------------------------
 
-        public override void Draw(GameTime gameTime)
-        {
-            throw new NotImplementedException();
-        }
-
         public override void Update(GameTime gameTime)
         {
             MovementVector.Normalize();
@@ -71,6 +57,11 @@ namespace LostInSpaceLib
             Position = new Vector2(movementVector.X * movementFactor, movementVector.Y * movementFactor);
 
 
+        }
+
+        public override void Draw(GameTime gameTime)
+        {
+            throw new NotImplementedException();
         }
     }
 }
