@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LostInSpace;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace LostInSpaceUI
     /// </summary>
     public partial class StartMenu: Window
     {
+        Game1 game;
         public StartMenu()
         {
             InitializeComponent();
@@ -29,17 +31,21 @@ namespace LostInSpaceUI
 
         private void Button_StartGame_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            game = new Game1();
+            game.Run();
         }
 
         private void Button_ItemShop_Click(object sender, RoutedEventArgs e)
         {
-
+            ItemShop itemShop = new ItemShop();
+            itemShop.ShowDialog();
         }
 
         private void Button_Settings_Click(object sender, RoutedEventArgs e)
         {
-
+            Settings settings = new Settings();
+            settings.ShowDialog();
         }
 
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
