@@ -23,7 +23,8 @@ namespace LostInSpaceUI
         public StartMenu()
         {
             InitializeComponent();
-
+            StartUp startUp = new StartUp();
+            startUp.ShowDialog();
         }
 
         private void Button_StartGame_Click(object sender, RoutedEventArgs e)
