@@ -17,7 +17,6 @@ namespace LostInSpaceLib
 
         GraphicsDevice graphicsDevice;
         SpriteBatch spriteBatch;
-        SpriteFont spriteFont;
 
         Song background_music;
         Dictionary<string, Texture2D> textures;
@@ -27,7 +26,6 @@ namespace LostInSpaceLib
         private Rocket rocket;
         private Vector2 backgroundOffset;
         private Vector2 planetOffset;
-        private float fuel;
 
         private ItemManager itemManager;
 
@@ -45,14 +43,12 @@ namespace LostInSpaceLib
 
         //-----------------------------------------------------------------------------------------
 
-        public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize, SpriteFont spriteFont, float fuel)
+        public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize)
         {
             this.graphicsDevice = graphicsDevice;
             this.background_music = background_music;
             this.textures = textures;
             this.windowSize = windowSize;
-            this.spriteFont = spriteFont;
-            this.fuel = fuel;
 
             Initialize();
             LoadContent();
@@ -64,9 +60,9 @@ namespace LostInSpaceLib
         {
             money = 0;
 
-            rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize, fuel);
+            rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize);
 
-            //itemManager = new ItemManager();
+            itemManager = new ItemManager();
         }
         
         public void LoadContent()
@@ -78,23 +74,21 @@ namespace LostInSpaceLib
 
         public void Update(GameTime gameTime)
         {
-            if (rocket.isFlying)
+            float newMoneyValue = rocket.Position.Y * MONEY_FACTOR;
+
+            if (money < newMoneyValue)
             {
-                float newMoneyValue = rocket.Position.Y * MONEY_FACTOR;
-
-                if (money < newMoneyValue)
-                {
-                    money = newMoneyValue;
-                }
-
-                if (rocket.Position.Y > 200)
-                {
-                    backgroundOffset.Y = rocket.Position.Y - 200;
-                    planetOffset.Y -= 5 * rocket.velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                }
-
-                rocket.Update(gameTime);
+                money = newMoneyValue;
             }
+
+            if (rocket.Position.Y > 200)
+            {
+                backgroundOffset.Y = rocket.Position.Y - 200;
+            }
+
+            rocket.Update(gameTime);
+
+            itemManager.Update(gameTime, rocket, textures, graphicsDevice);
         }
 
         public void Draw(GameTime gameTime)
@@ -104,10 +98,7 @@ namespace LostInSpaceLib
             spriteBatch.Begin();
 
             spriteBatch.Draw(textures["Hintergrund"], new Rectangle((int)backgroundOffset.X, (int)(backgroundOffset.Y - (textures["Hintergrund"].Height - windowSize.Height)), (int)windowSize.Width, (int)textures["Hintergrund"].Height), Color.White);
-            spriteBatch.Draw(textures["Planet"], new Rectangle(0, (int)(windowSize.Height - textures["Planet"].Height - planetOffset.Y), textures["Planet"].Width, textures["Planet"].Height), Color.White);
-
-            spriteBatch.DrawString(spriteFont, $"Money: {(int)money}", new Vector2(10, 10), Color.White);
-            spriteBatch.DrawString(spriteFont, $"Fuel: {(int)rocket.Fuel}", new Vector2(10, 25), Color.White);
+            spriteBatch.Draw(textures["Planet"], new Rectangle(0, (int)(windowSize.Height - textures["Planet"].Height), (int)windowSize.Width, (int)windowSize.Height), Color.White);
 
             spriteBatch.End();
 

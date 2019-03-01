@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LostInSpaceUI"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800">
+        Title="Settings" Height="450" Width="800" Icon="Images/logo.png" Background="#26235a">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Label Content="Settings" FontSize="40" HorizontalAlignment="Center" Margin="10" FontWeight="Bold" Foreground="White"/>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" >
+            <Label Content="Volume:"/>
+            <Slider Name="slider_Volume" Height="30" Width="300" Margin="20" Minimum="0" Maximum="100" Value="{Binding Volume}"/>
+            <Image Name="image_Volume" Source="{Binding ImageSource}" Height="30" Width="30" MaxHeight="30" MaxWidth="30"/>
+        </WrapPanel>
         
     </Grid>
+
+
 </Window>
