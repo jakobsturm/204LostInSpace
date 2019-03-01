@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace LostInSpaceLib
 {
@@ -18,15 +19,30 @@ namespace LostInSpaceLib
 
         Song background_music;
         Dictionary<string, Texture2D> textures;
+        Size windowSize;
 
-        Rocket rocket;
-        float money;
+        private float money;
+        private Rocket rocket;
 
-        public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures)
+        public float Money
+        {
+            get { return money; }
+            set { money = value; }
+        }
+
+        public Rocket Rocket
+        {
+            get { return rocket; }
+            set { rocket = value; }
+        }
+
+
+        public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize)
         {
             this.graphicsDevice = graphicsDevice;
             this.background_music = background_music;
             this.textures = textures;
+            this.windowSize = windowSize;
 
             Initialize();
             LoadContent();

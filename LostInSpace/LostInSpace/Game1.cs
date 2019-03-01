@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace LostInSpace
 {
@@ -19,7 +20,15 @@ namespace LostInSpace
 
         public Game1()
         {
+            this.IsMouseVisible = true;
+
             graphics = new GraphicsDeviceManager(this);
+
+            graphics.PreferredBackBufferWidth = 720;
+            graphics.PreferredBackBufferHeight = 1080;
+            //graphics.IsFullScreen = true;
+            graphics.ApplyChanges();
+
             Content.RootDirectory = "Content";
         }
         
@@ -32,7 +41,7 @@ namespace LostInSpace
 
             background_music = Content.Load<Song>("Tragik_in_A-Moll");
 
-            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures);
+            lostInSpaceGame = new LostInSpaceGame(GraphicsDevice, background_music, textures, new Size(graphics.PreferredBackBufferWidth, graphics.PreferredBackBufferHeight));
 
             base.Initialize();
         }
@@ -52,6 +61,7 @@ namespace LostInSpace
                 Exit();
 
             lostInSpaceGame.Update(gameTime);
+            lostInSpaceGame.Rocket.MovementVector = new Vector2(5);
 
             base.Update(gameTime);
         }
@@ -62,6 +72,8 @@ namespace LostInSpace
 
             base.Draw(gameTime);
         }
+
+        //-----------------------------------------------------------------------------------------
 
         public Texture2D GetTexture2DFromColour(GraphicsDevice graphics, Color colour, int width, int height)
         {
