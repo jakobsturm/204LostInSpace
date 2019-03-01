@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using LostInSpaceLib.Items;
@@ -15,38 +11,45 @@ namespace LostInSpaceLib
 
         private Texture2D Texture;
         public Vector2 Position { get; set; }
-        SpriteBatch spriteBatch;
 
-        public AllItems(float posX, float posY, Dictionary<string, Texture2D> textures, int WhatItem)
+
+        public AllItems(float posX, float posY, Dictionary<string, Texture2D> textures, int WhatItem, GraphicsDevice graphicsDevice)
         {
 
             Position = new Vector2(posX, posY);
-
-
+            allitems = new List<L_AllItems>();
             //spriteBatch = new SpriteBatch();
             switch (WhatItem)
             {
                 case 1:
                     Texture = textures["Health"];
+                    Draw(graphicsDevice, allitems);
                     break;
                 case 2:
                     Texture = textures["Money"];
+                    Draw(graphicsDevice, allitems);
                     break;
                 case 3:
                     Texture = textures["Fuel"];
+                    Draw(graphicsDevice, allitems);
                     break;
             }
         }
 
 
 
-        public void Draw(GameTime gameTime)
+        public void Draw(GraphicsDevice graphicsDevice, List<L_AllItems> allitems)
         {
+            SpriteBatch spriteBatch = new SpriteBatch(graphicsDevice);
             spriteBatch.Begin();
 
             spriteBatch.Draw(Texture, Position, Color.White);
 
-            allitems.Add(new L_AllItems() { PositionItem = Position, s = new System.Windows.Size(50,50)});
+            L_AllItems data = new L_AllItems();
+            data.PositionItem = Position;
+            data.s = new System.Windows.Size(50, 50);
+
+            allitems.Add(data);
 
             spriteBatch.End();
         }
