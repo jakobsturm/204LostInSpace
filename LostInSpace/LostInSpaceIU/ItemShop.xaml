@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LostInSpaceUI"
         mc:Ignorable="d"
-        Title="ItemShop" Height="450" Width="800" Icon="Images/logo.png">
+        Title="ItemShop" Height="1920" Width="1080">
     <Grid>
-        
+        <Image Source="/Images/background-shop.png" Stretch="UniformTofill"/>
+        <TextBlock
+            Name="Heading"
+            FontFamily="Bahnschrift"
+            FontWeight="Bold"
+            FontSize="200"
+            Foreground="White"
+            TextAlignment="Center"
+            Padding="300"
+        >
+            SHOP
+        </TextBlock>
+        <WrapPanel Margin="118,691,115.6,400.4">
+            <Button Width="300" Height="300" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderThickness="10" BorderBrush="White" Margin="30" Click="Button_Click">
+            <TextBlock Name="button_caption" FontFamily="Bahnschrift"
+            FontWeight="Bold"
+            FontSize="90"
+            Foreground="White"
+            TextAlignment="Center"
+            >                
+                <Image Source="/Images/fuel.png" Width="180" Height="180"/>
+                1x
+            </TextBlock>
+        </Button>
+            <Button Width="300" Height="300" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderThickness="10" BorderBrush="White" Margin="30" Click="Button_Click_1">
+                <TextBlock Name="button_caption2" FontFamily="Bahnschrift"
+            FontWeight="Bold"
+            FontSize="90"
+            Foreground="White"
+            TextAlignment="Center"
+            >                
+                <Image Source="/Images/fuel.png" Width="180" Height="180"/>
+                2x
+                </TextBlock>
+            </Button>
+            <Button Width="300" Height="300" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderThickness="10" BorderBrush="White" Margin="30" Click="Button_Click_2">
+                <TextBlock Name="button_caption4" FontFamily="Bahnschrift"
+            FontWeight="Bold"
+            FontSize="90"
+            Foreground="White"
+            TextAlignment="Center"
+            >                
+                <Image Source="/Images/fuel.png" Width="180" Height="180"/>
+                1x
+                </TextBlock>
+            </Button>
+            <Button Width="300" Height="300" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" BorderThickness="10" BorderBrush="White" Margin="30" Click="Button_Click_3">
+                <TextBlock Name="button_caption3" FontFamily="Bahnschrift"
+            FontWeight="Bold"
+            FontSize="90"
+            Foreground="White"
+            TextAlignment="Center"
+                           
+            >                
+                <Image Source="/Images/fuel.png" Width="180" Height="180"/>
+                2x
+                </TextBlock>
+            </Button>
+        </WrapPanel>
     </Grid>
 </Window>

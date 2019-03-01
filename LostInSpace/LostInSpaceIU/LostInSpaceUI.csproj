@@ -119,6 +119,12 @@
     <Resource Include="Images\logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\background-shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\fuel.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\LostInSpace\LostInSpace.csproj">
       <Project>{75815d59-6715-45f5-8558-88110fbe61c5}</Project>
       <Name>LostInSpace</Name>
