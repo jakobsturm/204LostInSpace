@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using LostInSpaceLib;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -11,6 +12,8 @@ namespace LostInSpace
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        LostInSpaceGame lostInSpaceGame;
 
         public Game1()
         {
@@ -26,7 +29,7 @@ namespace LostInSpace
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            lostInSpaceGame = new LostInSpaceGame();
 
             base.Initialize();
         }
@@ -62,7 +65,7 @@ namespace LostInSpace
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            lostInSpaceGame.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -73,9 +76,7 @@ namespace LostInSpace
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            // TODO: Add your drawing code here
+            lostInSpaceGame.Draw(gameTime);
 
             base.Draw(gameTime);
         }
