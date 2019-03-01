@@ -24,8 +24,8 @@ namespace LostInSpace
 
             graphics = new GraphicsDeviceManager(this);
 
-            graphics.PreferredBackBufferWidth = 720;
-            graphics.PreferredBackBufferHeight = 800;
+            graphics.PreferredBackBufferWidth = 1080;
+            graphics.PreferredBackBufferHeight = 1080;
             //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
@@ -39,7 +39,7 @@ namespace LostInSpace
             // Add all the textures here!!!
             textures.Add("Rocket", Content.Load<Texture2D>("rocket"));
             textures.Add("Planet", Content.Load<Texture2D>("planet"));
-            textures.Add("Hintergrund", Content.Load<Texture2D>("background"));
+            textures.Add("Hintergrund", Content.Load<Texture2D>("background_v2"));
             textures.Add("Fuel", GetTexture2DFromColour(GraphicsDevice, Color.Gray, 10, 10));
             textures.Add("Health", GetTexture2DFromColour(GraphicsDevice, Color.Red, 10, 10));
             textures.Add("Money", GetTexture2DFromColour(GraphicsDevice, Color.Green, 10, 10));
@@ -70,12 +70,18 @@ namespace LostInSpace
 
             if (keyboardState.IsKeyDown(Keys.Left))
             {
-                movementVector += new Vector2(5, 0);
+                if (lostInSpaceGame.Rocket.Position.X < 470)
+                {
+                    movementVector += new Vector2(5, 0);
+                }
             }
 
             if (keyboardState.IsKeyDown(Keys.Right))
             {
-                movementVector += new Vector2(-5, 0);
+                if (lostInSpaceGame.Rocket.Position.X > -470)
+                {
+                    movementVector += new Vector2(-5, 0);
+                }
             }
 
             lostInSpaceGame.Rocket.MovementVector = movementVector;

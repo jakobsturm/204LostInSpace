@@ -18,7 +18,7 @@ namespace LostInSpaceLib
         public Fuel(float posX, float posY, Texture2D texture)
         {
             FuelPosition = new Vector2(posX, posY);
-            spriteBatch = new SpriteBatch();
+            //spriteBatch = new SpriteBatch();
             FuelTexture = texture;
         }
 
@@ -28,7 +28,7 @@ namespace LostInSpaceLib
         {
             spriteBatch.Begin();
 
-            spriteBatch.Draw(FuelTexture, Position, Color.White);
+            //spriteBatch.Draw(FuelTexture, Position, Color.White);
 
             spriteBatch.End();
         }

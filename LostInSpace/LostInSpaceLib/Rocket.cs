@@ -11,8 +11,8 @@ namespace LostInSpaceLib
 {
     public class Rocket : Entity
     {
-        const int TEXTURE_WIDTH = 100;
-        const int TEXTURE_HEIGHT = 100;
+        const int TEXTURE_WIDTH = 145;
+        const int TEXTURE_HEIGHT = 200;
 
         private float velocity;
         private Vector2 movementVector;
@@ -54,7 +54,7 @@ namespace LostInSpaceLib
         public Rocket(GraphicsDevice graphicsDevice, Texture2D texture, Size windowSize)
         {
             Position = new Vector2(0, 0);
-            velocity = 10;
+            velocity = 100;
 
             this.texture = texture;
             this.windowSize = windowSize;
@@ -74,7 +74,7 @@ namespace LostInSpaceLib
 
             if (Position.Y > 200)
             {
-
+                offset.Y += movementVector.Y * movementFactor;
             }
         }
 
