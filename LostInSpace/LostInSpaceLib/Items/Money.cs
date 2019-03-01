@@ -13,11 +13,11 @@ namespace LostInSpaceLib
         public Vector2 MoneyPosition { get; set; }
         private Texture2D MoneyTexture;
 
-        public Money(float posX, float posY)
+        public Money(float posX, float posY, Texture2D texture)
         {
             MoneyPosition = new Vector2(posX, posY);
 
-            MoneyTexture = MoneyTexture;
+            MoneyTexture = texture;
         }
 
 

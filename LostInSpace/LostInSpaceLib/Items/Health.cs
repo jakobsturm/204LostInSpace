@@ -20,6 +20,5 @@ namespace LostInSpaceLib
         private Texture2D HealthTexture;
         public Vector2 HealthPosition { get; set; }
         
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using LostInSpaceLib.Items;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 using System;
@@ -12,7 +13,7 @@ namespace LostInSpaceLib
 {
     public class LostInSpaceGame
     {
-        const float moneyFactor = 0.05f;
+        const float MONEY_FACTOR = 0.05f;
 
         GraphicsDevice graphicsDevice;
         SpriteBatch spriteBatch;
@@ -23,6 +24,9 @@ namespace LostInSpaceLib
 
         private float money;
         private Rocket rocket;
+        private Vector2 backgroundOffset;
+
+        private ItemManager itemManager;
 
         public float Money
         {
@@ -56,6 +60,8 @@ namespace LostInSpaceLib
             money = 0;
 
             rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize);
+
+            //itemManager = new ItemManager();
         }
         
         public void LoadContent()
@@ -67,11 +73,16 @@ namespace LostInSpaceLib
 
         public void Update(GameTime gameTime)
         {
-            float newMoneyValue = rocket.Position.Y * moneyFactor;
+            float newMoneyValue = rocket.Position.Y * MONEY_FACTOR;
 
             if (money < newMoneyValue)
             {
                 money = newMoneyValue;
+            }
+
+            if (rocket.Position.Y > 200)
+            {
+                backgroundOffset.Y = rocket.Position.Y - 200;
             }
 
             rocket.Update(gameTime);
@@ -80,6 +91,12 @@ namespace LostInSpaceLib
         public void Draw(GameTime gameTime)
         {
             graphicsDevice.Clear(Color.Black);
+
+            spriteBatch.Begin();
+
+            spriteBatch.Draw(textures["Hintergrund"], new Rectangle((int)backgroundOffset.X, (int)(backgroundOffset.Y - (textures["Hintergrund"].Height - windowSize.Height)), (int)windowSize.Width, (int)textures["Hintergrund"].Height), Color.White);
+
+            spriteBatch.End();
 
             rocket.Draw(gameTime);
         }
