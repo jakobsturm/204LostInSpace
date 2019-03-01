@@ -36,6 +36,7 @@ namespace LostInSpaceLib
             set { rocket = value; }
         }
 
+        //-----------------------------------------------------------------------------------------
 
         public LostInSpaceGame(GraphicsDevice graphicsDevice, Song background_music, Dictionary<string, Texture2D> textures, Size windowSize)
         {
@@ -48,11 +49,13 @@ namespace LostInSpaceLib
             LoadContent();
         }
         
+        //-----------------------------------------------------------------------------------------
+
         public void Initialize()
         {
             money = 0;
 
-            rocket = new Rocket(graphicsDevice, textures["Rocket"]);
+            rocket = new Rocket(graphicsDevice, textures["Rocket"], windowSize);
         }
         
         public void LoadContent()
@@ -76,7 +79,7 @@ namespace LostInSpaceLib
 
         public void Draw(GameTime gameTime)
         {
-            graphicsDevice.Clear(Color.CornflowerBlue);
+            graphicsDevice.Clear(Color.Black);
 
             rocket.Draw(gameTime);
         }

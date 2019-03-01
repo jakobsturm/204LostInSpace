@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -15,6 +16,8 @@ namespace LostInSpaceLib
         private Vector2 position;
         private Texture2D texture;
         private SpriteBatch spriteBatch;
+        private Size windowSize;
+        private Vector2 offset;
 
         private int hullPoints;
         private float fuel;
@@ -45,12 +48,15 @@ namespace LostInSpaceLib
 
         //-----------------------------------------------------------------------------------------
 
-        public Rocket(GraphicsDevice graphicsDevice, Texture2D texture)
+        public Rocket(GraphicsDevice graphicsDevice, Texture2D texture, Size windowSize)
         {
             Position = new Vector2(0, 0);
 
             this.texture = texture;
+            this.windowSize = windowSize;
+
             spriteBatch = new SpriteBatch(graphicsDevice);
+            offset = new Vector2((float)windowSize.Width / 2 - texture.Width / 2, (float)windowSize.Height - texture.Height);
         }
 
         //-----------------------------------------------------------------------------------------
@@ -67,7 +73,7 @@ namespace LostInSpaceLib
         {
             spriteBatch.Begin();
 
-            spriteBatch.Draw(texture, Position, Color.White);
+            spriteBatch.Draw(texture, Position + offset, Color.White);
 
             spriteBatch.End();
         }

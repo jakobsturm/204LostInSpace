@@ -25,7 +25,7 @@ namespace LostInSpace
             graphics = new GraphicsDeviceManager(this);
 
             graphics.PreferredBackBufferWidth = 720;
-            graphics.PreferredBackBufferHeight = 1080;
+            graphics.PreferredBackBufferHeight = 800;
             //graphics.IsFullScreen = true;
             graphics.ApplyChanges();
 
@@ -37,7 +37,10 @@ namespace LostInSpace
             textures = new Dictionary<string, Texture2D>();
 
             // Add all the textures here!!!
-            textures.Add("Rocket", GetTexture2DFromColour(GraphicsDevice, Color.Black, 100, 100));
+            textures.Add("Rocket", GetTexture2DFromColour(GraphicsDevice, Color.DarkGray, 100, 100));
+            textures.Add("Fuel", GetTexture2DFromColour(GraphicsDevice, Color.Gray, 10, 10));
+            textures.Add("Health", GetTexture2DFromColour(GraphicsDevice, Color.Red, 10, 10));
+            textures.Add("Money", GetTexture2DFromColour(GraphicsDevice, Color.Green, 10, 10));
 
             background_music = Content.Load<Song>("Tragik_in_A-Moll");
 
